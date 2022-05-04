@@ -1,7 +1,16 @@
+import { useState } from "react"
 import { Container, Menu, Grid, Icon, Label, GridColumn} from "semantic-ui-react"
 import Link from "next/link"
+import BasicModal from "../../Modal/BasicModal/BasicModal"
+import Auth from "../../Auth"
 
 export default function MenuWeb() {
+
+    const [showModal, setShowModal] = useState(false)
+    const [titleModal, setTitleModal] = useState("Iniciar Sesión")
+    const onShowModal = () => setShowModal(true)
+    const onCloseModal = () => setShowModal(false)
+
   return (
       <div className="menu">
         <Container>
@@ -10,11 +19,14 @@ export default function MenuWeb() {
                     <MenuPlatforms/>
                 </Grid.Column>
                 <Grid.Column className="menu__right" width={10}>
-                    <MenuOptions />
+                    <MenuOptions onShowModal={onShowModal}/>
 
                 </Grid.Column>
             </Grid>
         </Container>
+        <BasicModal show={showModal} setShow={setShowModal} title={titleModal} size="small">
+            <Auth onCloseModal={onCloseModal} setTitleModal={setTitleModal} />
+        </BasicModal>
 
       </div>
   )
@@ -23,29 +35,40 @@ export default function MenuWeb() {
 function MenuPlatforms(){
     return(
         <Menu>
-            <Link href="/play-station">
+            <Link href="/anime">
                 <Menu.Item as="a">
-                    PS5
+                    Anime
                 </Menu.Item>                
             </Link>
-            <Link href="/xbox">
+            <Link href="/manga">
                 <Menu.Item as="a">
-                    xbox
+                    Manga
                 </Menu.Item>                
             </Link>
-            <Link href="/switch">
+            <Link href="/videojuegos">
                 <Menu.Item as="a">
-                    switch
+                    Videojuegos
+                </Menu.Item>                
+            </Link>
+            <Link href="/figuras">
+                <Menu.Item as="a">
+                    Figuras
+                </Menu.Item>                
+            </Link>
+            <Link href="/cosplay">
+                <Menu.Item as="a">
+                    Cosplay
                 </Menu.Item>                
             </Link>
         </Menu>
     )
 }
 
-function MenuOptions(){
+function MenuOptions(props){
+    const { onShowModal } = props
     return(
         <Menu>
-            <Menu.Item>
+            <Menu.Item onClick={onShowModal}>
                 <Icon name="user outline"/>
                 Mi cuenta
             </Menu.Item>
