@@ -15,7 +15,11 @@
 @import "../components/Account/ChangePasswordForm/ChangePasswordForm.scss";
 @import "../components/Account/AddressForm/AddressForm.scss";
 @import "../components/Account/ListAddress/ListAddress.scss";
+@import "../components/ListProducts/ListProducts.scss";
+@import "../components/Pagination/Pagination.scss";
 
 
 //pages
 @import "../pages/account.scss";
+@import "../pages/index.scss";
+@import "../pages/store/category.scss";

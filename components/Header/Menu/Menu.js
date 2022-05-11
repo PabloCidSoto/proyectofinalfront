@@ -30,7 +30,6 @@ export default function MenuWeb() {
         (async () => {
             const response = await getCategoriesApi();
             setCategories(response || []);
-            console.log(response);
         })()
     
     }, [auth]);
