@@ -10,6 +10,8 @@ import ChangePasswordForm from '../components/Account/ChangePasswordForm';
 import BasicModal from '../components/Modal/BasicModal';
 import AddressForm from '../components/Account/AddressForm';
 import ListAddress from '../components/Account/ListAddress';
+import { Loader } from 'semantic-ui-react';
+
 
 export default function Account() {
     const router = useRouter();
@@ -25,7 +27,11 @@ export default function Account() {
     }, [auth]);
     
 
-    if(user === undefined) return null;
+    if(user === undefined) 
+      return (
+      <BasicLayout>
+        <Loader active>Cargando información del usuario</Loader>
+      </BasicLayout>);
     
     if(!auth && !user){
         router.replace("/");
