@@ -21,6 +21,8 @@
 @import "../components/Product/TabsProduct/TabsProduct.scss";
 @import "../components/Product/InfoProduct/InfoProduct.scss";
 @import "../components/Product/CarouselImages/CarouselImages.scss";
+@import "../components/Cart/SummaryCart/SummaryCart.scss";
+@import "../components/Cart/AddressShipping/AddressShipping.scss";
 
 
 //pages
@@ -28,3 +30,5 @@
 @import "../pages/index.scss";
 @import "../pages/store/category.scss";
 @import "../pages/wishlist.scss";
+@import "../pages/search.scss";
+@import "../pages/cart.scss";

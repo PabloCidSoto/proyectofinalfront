@@ -3,7 +3,8 @@ import { Grid, Image, Icon, Button } from "semantic-ui-react";
 import { size } from 'lodash';
 import { isFavoriteApi, addFavoriteApi, deleteFavoriteApi } from '../../../api/favorite';
 import classNames from 'classnames';
-import useAuth from "../../../hooks/useAuth"
+import useAuth from "../../../hooks/useAuth";
+import useCart from "../../../hooks/useCart"
 
 export default function HeaderProduct(props) {
     const { product } = props;
@@ -23,10 +24,11 @@ export default function HeaderProduct(props) {
 
 function Info(props){
     const { product } = props;
-    const { title, summary, price, discount } = product
+    const { title, summary, price, discount, url } = product
     const { auth, logout } = useAuth();
     const [reloadFavorite, setReloadFavorite] = useState(false)
     const [isFavorite, setIsFavorite] = useState(false);
+    const { addProductCart } = useCart();
 
     useEffect(() => {
       (async () => {
@@ -79,7 +81,7 @@ function Info(props){
                         }
                     </div>
                 </div>
-                <Button className='header-product__buy-btn'>
+                <Button className='header-product__buy-btn' onClick={() => addProductCart(url)}>
                     Comprar
                 </Button>
 
