@@ -32,6 +32,10 @@ function Info(props){
 
     useEffect(() => {
       (async () => {
+          if(!auth){
+              setIsFavorite(false);
+              return;
+          }
         const response = await isFavoriteApi(auth.idUser, product.id, logout)
         if(size(response) > 0)  setIsFavorite(true);
         else setIsFavorite(false);
