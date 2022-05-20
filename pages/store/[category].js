@@ -7,7 +7,7 @@ import { getProductsCategoryApi, getTotalProductsCategoryApi } from "../../api/p
 import ListProducts from "../../components/ListProducts"
 import Pagination from "../../components/Pagination";
 
-const limitPerPage = 5;
+const limitPerPage = 15;
 
 export default function Category(){
     const { query } = useRouter();

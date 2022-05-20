@@ -4,6 +4,7 @@ import { getProductByUrlApi } from "../api/product"
 import useCart from '../hooks/useCart';
 import SummaryCart from '../components/Cart/SummaryCart';
 import AddressShipping from '../components/Cart/AddressShipping';
+import Payment from '../components/Cart/Payment';
 
 export default function Cart() {
     const { getProductsCart } = useCart();
@@ -42,6 +43,7 @@ function FullCart(props){
         <BasicLayout className="empty-cart">
             <SummaryCart products={productsData} reloadCart={reloadCart} setReloadCart={setReloadCart}/>
             <AddressShipping setAddress={setAddress}/>
+            {address && <Payment products={productsData} address={address}/>}
         </BasicLayout>
     )
 }

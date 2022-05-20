@@ -10,8 +10,7 @@ export default function SummaryCart(props) {
 
     useEffect(() => {
       let price = 0;
-      forEach(products, (product)=>{
-          console.log(price)
+      forEach(products, (product)=> {
           price += (product.price - Math.floor(product.price * product.discount) / 100);
       })
       setTotalPrice(price)

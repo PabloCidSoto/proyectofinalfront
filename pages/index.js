@@ -4,6 +4,7 @@ import { size } from "lodash";
 import BasicLayout from "../layouts/BasicLayout";
 import { getLastProductsApi } from "../api/product";
 import ListProducts from "../components/ListProducts";
+import Seo from "../components/Seo";
 
 export default function Home() {
 
@@ -20,6 +21,7 @@ export default function Home() {
 
   return (
     <BasicLayout className="home">
+      <Seo />
       {!products && <Loader active>Cargando productos</Loader>}
       {products && size(products) === 0 && (
         <div>
@@ -27,7 +29,10 @@ export default function Home() {
         </div>
       )}
       {size(products) > 0 && (
-        <ListProducts products={products}/>
+        <>
+          <h2>Lo último agregado a la tienda</h2>
+          <ListProducts products={products}/>
+        </>  
       )
 
       }

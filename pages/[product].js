@@ -5,6 +5,7 @@ import { getProductByUrlApi } from '../api/product';
 import HeaderProduct from '../components/Product/HeaderProduct';
 import TabsProduct from '../components/Product/TabsProduct';
 import { Loader } from 'semantic-ui-react';
+import Seo from '../components/Seo';
 
 export default function Product() {
   const [product, setProduct] = useState(null);
@@ -26,6 +27,7 @@ export default function Product() {
 
   return (
     <BasicLayout className="product">
+      <Seo title={product.title}/>
       <HeaderProduct product={product}/>
       <TabsProduct product={product}/>
       

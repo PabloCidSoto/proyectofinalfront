@@ -5,6 +5,7 @@ import { useRouter } from 'next/router';
 import BasicLayout  from "../layouts/BasicLayout"
 import { searchProductsApi } from '../api/product';
 import ListProducts from "../components/ListProducts";
+import Seo from '../components/Seo';
 
 export default function Search() {
 
@@ -33,6 +34,7 @@ export default function Search() {
 
   return (
     <BasicLayout className="search">
+      <Seo title={`Buscando: ${query.query}`}/>
         {!products && <Loader active>Buscando productos</Loader>}
         {products && size(products) === 0 && (
             <div>
