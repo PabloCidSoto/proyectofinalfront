@@ -12,6 +12,6 @@ export default function Seo(props) {
 }
 
 Seo.defaultProps = {
-    title: "Tienda de cosas otakus",
+    title: "Frikilince",
     description: "Consigue todo lo que necesites relacionado al mundo de anime"
 }
