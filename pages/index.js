@@ -30,7 +30,10 @@ export default function Home() {
       )}
       {size(products) > 0 && (
         <>
-          <h2>Lo último agregado a la tienda</h2>
+        <div class="title">
+          <h2>LO MÁS NUEVO</h2>
+        </div>
+          
           <ListProducts products={products}/>
         </>  
       )

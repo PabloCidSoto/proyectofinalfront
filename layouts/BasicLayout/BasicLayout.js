@@ -13,7 +13,6 @@ export default function BasicLayout(props) {
     })}>
       <Header />
         <Container className="content">
-
             {children}
         </Container>
     </Container>
